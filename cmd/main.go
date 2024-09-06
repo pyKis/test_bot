@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/pyKis/test_bot/pkg/system"
+	"pkg/system"
 )
 
 

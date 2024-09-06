@@ -1,2 +1,4 @@
 github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
 github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
+github.com/pyKis/test_bot v0.0.0-20240906100109-e07b0738eb59 h1:acKvYfyskLWTzQqirChiYhAWlDoD8e1uSZRlIaPzUdw=
+github.com/pyKis/test_bot v0.0.0-20240906100109-e07b0738eb59/go.mod h1:lop+NHzf/LNk+5b6IAr6UooAPosWJ100EL1Tkr01JIo=
