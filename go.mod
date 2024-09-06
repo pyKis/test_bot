@@ -1,4 +1,4 @@
-module bot
+module github.com/pyKis/test_bot
 
 go 1.23.0
 
