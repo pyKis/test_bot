@@ -1,11 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"pkg/system"
+	"log"
+
+	"github.com/pyKis/test_bot/pkg/system"
 )
 
-
 func main(){
-	fmt.Println(system.BotToken)
+	token := system.BotToken
+	
+	log.Println("Вывод:", token )
 }
