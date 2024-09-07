@@ -6,12 +6,11 @@ import (
 	"os/signal"
 
 	"github.com/go-telegram/bot"
-	
+	"github.com/go-telegram/ui/keyboard/reply"
 
 	"github.com/pyKis/test_bot/pkg/handler"
 	"github.com/pyKis/test_bot/pkg/system"
 )
-
 
 
 func BotStart(){
@@ -29,7 +28,21 @@ func BotStart(){
 	if err != nil {
 		panic(err)
 	}
-
+	InitReplyKeyboard(b)
 	b.Start(ctx)
+	
 }
 
+var ReplyKeyboard *reply.ReplyKeyboard
+
+func InitReplyKeyboard(b *bot.Bot) {
+	ReplyKeyboard = reply.New(
+		b,
+		reply.WithPrefix("reply_keyboard"),
+		reply.IsSelective(),
+		reply.IsOneTimeKeyboard(),
+	).
+		Button("Button", b, bot.MatchTypeExact, handler.OnReplyKeyboardSelect).
+		Row().
+		Button("Cancel", b, bot.MatchTypeExact, handler.OnReplyKeyboardSelect)
+}

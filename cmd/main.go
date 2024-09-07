@@ -1,6 +1,8 @@
 package main
 
-import "github.com/pyKis/test_bot/pkg/bot"
+import (
+	"github.com/pyKis/test_bot/pkg/bot"
+)
 
 
 
