@@ -9,10 +9,10 @@ import (
 	"github.com/pyKis/test_bot/pkg/handler"
 )
 
-var demoReplyKeyboard *reply.ReplyKeyboard
+var DemoReplyKeyboard *reply.ReplyKeyboard
 
 func InitReplyKeyboard(b *bot.Bot) {
-	demoReplyKeyboard = reply.New(
+	DemoReplyKeyboard = reply.New(
 		b,
 		reply.WithPrefix("reply_keyboard"),
 		reply.IsSelective(),

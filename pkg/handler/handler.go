@@ -21,7 +21,7 @@ func HandlerReplyKeyboard(ctx context.Context, b *bot.Bot, update *models.Update
 	b.SendMessage(ctx, &bot.SendMessageParams{
 		ChatID:      update.Message.Chat.ID,
 		Text:        "Select example command from reply keyboard:",
-		ReplyMarkup: keyboard.InitReplyKeyboard,
+		ReplyMarkup: keyboard.DemoReplyKeyboard,
 	})
 }
 
