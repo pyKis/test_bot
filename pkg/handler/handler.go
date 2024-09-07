@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-telegram/bot"
 	"github.com/go-telegram/bot/models"
-	"github.com/pyKis/test_bot/pkg/UiComponents/keyboard"
+	"github.com/pyKis/test_bot/pkg\uicomponents\keyboard"
 )
 
 
