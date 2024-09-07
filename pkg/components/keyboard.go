@@ -6,7 +6,7 @@ import (
 	"github.com/go-telegram/bot"
 	"github.com/go-telegram/bot/models"
 	"github.com/go-telegram/ui/keyboard/reply"
-	"github.com/pyKis/test_bot/pkg/UiComponents/handler"
+	"github.com/pyKis/test_bot/pkg/handler"
 )
 
 var demoReplyKeyboard *reply.ReplyKeyboard
