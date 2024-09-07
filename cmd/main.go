@@ -1,16 +1,11 @@
 package main
 
 import (
-	"log"
-
-	"github.com/pyKis/test_bot/pkg/system"
+	"github.com/pyKis/test_bot/pkg/bot"
 )
 
+// Send any text message to the bot after the bot has been started
 
-
-func main(){
-	token:= system.BotToken()
-
-
-	log.Printf("BOT_TOKEN: %s", token)
+func main() {
+	bot.BotStart()
 }
