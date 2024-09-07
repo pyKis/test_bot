@@ -7,6 +7,8 @@ import (
 
 	"github.com/go-telegram/bot"
 	
+
+	"github.com/pyKis/test_bot/pkg/handler"
 	"github.com/pyKis/test_bot/pkg/system"
 )
 
@@ -18,6 +20,7 @@ func BotStart(){
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer cancel()
 
+	
 	opts := []bot.Option{
 		bot.WithDefaultHandler(handler.Handler),
 	}
@@ -29,3 +32,4 @@ func BotStart(){
 
 	b.Start(ctx)
 }
+
