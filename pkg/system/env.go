@@ -7,14 +7,17 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func BotToken () string {
+func BotToken() string {
 	err := godotenv.Load(".env")
 
 	if err != nil{
 		log.Print("No .env file found")
 	}
 	
-	return os.Getenv("BOT_TOKEN")
-	
+	token := os.Getenv("BOT_TOKEN")
+
+
+	return token
+
 
 }
