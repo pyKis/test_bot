@@ -21,7 +21,7 @@ func BotStart(){
 	
 	opts := []bot.Option{
 		bot.WithDefaultHandler(HandlerReplyKeyboard),
-		bot.WithDefaultHandler(Handler),
+		bot.WithDefaultHandler(OnReplyKeyboardSelect),
 	}
 
 	b, err := bot.New(token, opts...)
@@ -57,7 +57,7 @@ func Handler(ctx context.Context, b *bot.Bot, update *models.Update)  {
 func HandlerReplyKeyboard(ctx context.Context, b *bot.Bot, update *models.Update) {
 	b.SendMessage(ctx, &bot.SendMessageParams{
 		ChatID:      update.Message.Chat.ID,
-		Text:        "Select example command from reply keyboard:",
+		Text:        "Нажмите кнопку:",
 		ReplyMarkup: ReplyKeyboard,
 	})
 }
@@ -65,6 +65,6 @@ func HandlerReplyKeyboard(ctx context.Context, b *bot.Bot, update *models.Update
 func OnReplyKeyboardSelect(ctx context.Context, b *bot.Bot, update *models.Update) {
 	b.SendMessage(ctx, &bot.SendMessageParams{
 		ChatID: update.Message.Chat.ID,
-		Text:   "You selected: " + string(update.Message.Text),
+		Text:   "Вы выбрали " + string(update.Message.Text),
 	})
 }
