@@ -6,9 +6,8 @@ import (
 	"os/signal"
 
 	"github.com/go-telegram/bot"
+	"github.com/go-telegram/bot/models"
 	"github.com/go-telegram/ui/keyboard/reply"
-
-	"github.com/pyKis/test_bot/pkg/handler"
 	"github.com/pyKis/test_bot/pkg/system"
 )
 
@@ -21,7 +20,8 @@ func BotStart(){
 
 	
 	opts := []bot.Option{
-		bot.WithDefaultHandler(handler.Handler),
+		bot.WithDefaultHandler(HandlerReplyKeyboard),
+		bot.WithDefaultHandler(Handler),
 	}
 
 	b, err := bot.New(token, opts...)
@@ -42,7 +42,29 @@ func InitReplyKeyboard(b *bot.Bot) {
 		reply.IsSelective(),
 		reply.IsOneTimeKeyboard(),
 	).
-		Button("Button", b, bot.MatchTypeExact, handler.OnReplyKeyboardSelect).
+		Button("Button", b, bot.MatchTypeExact, OnReplyKeyboardSelect).
 		Row().
-		Button("Cancel", b, bot.MatchTypeExact, handler.OnReplyKeyboardSelect)
+		Button("Cancel", b, bot.MatchTypeExact, OnReplyKeyboardSelect)
+}
+
+func Handler(ctx context.Context, b *bot.Bot, update *models.Update)  {
+	b.SendMessage(ctx, &bot.SendMessageParams{
+		ChatID: update.Message.Chat.ID,
+		Text:   update.Message.Text,
+	})
+}
+
+func HandlerReplyKeyboard(ctx context.Context, b *bot.Bot, update *models.Update) {
+	b.SendMessage(ctx, &bot.SendMessageParams{
+		ChatID:      update.Message.Chat.ID,
+		Text:        "Select example command from reply keyboard:",
+		ReplyMarkup: ReplyKeyboard,
+	})
+}
+
+func OnReplyKeyboardSelect(ctx context.Context, b *bot.Bot, update *models.Update) {
+	b.SendMessage(ctx, &bot.SendMessageParams{
+		ChatID: update.Message.Chat.ID,
+		Text:   "You selected: " + string(update.Message.Text),
+	})
 }
