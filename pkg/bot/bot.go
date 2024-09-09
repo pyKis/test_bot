@@ -42,9 +42,9 @@ func InitReplyKeyboard(b *bot.Bot) {
 		reply.IsSelective(),
 		reply.IsOneTimeKeyboard(),
 	).
-		Button("Button", b, bot.MatchTypeExact, OnReplyKeyboardSelect).
+		Button("Поделиться контактом", b, bot.MatchTypeExact, OnReplyKeyboardSelect).
 		Row().
-		Button("Cancel", b, bot.MatchTypeExact, OnReplyKeyboardSelect)
+		Button("Сгенерировать ссылку", b, bot.MatchTypeExact, OnReplyKeyboardSelect)
 }
 
 func Handler(ctx context.Context, b *bot.Bot, update *models.Update)  {
